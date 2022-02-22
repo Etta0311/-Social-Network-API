@@ -31,7 +31,6 @@ const thoughtController = {
   createThought(req, res) {
     Thought.create(req.body)
       .then((dbThoughtData) => {
-        // ref to user and update user
         return User.findByIdAndUpdate(
           req.body.userId,
           { $push: { thoughts: dbThoughtData._id } },
