@@ -12,7 +12,7 @@ const thoughtController = {
   },
 
   // GET Thought by ID
-  thoughtsById(req, res) {
+  thoughtById(req, res) {
     Thought.findOne({ _id: req.params.id })
       .then((dbThoughtData) => {
         !dbThoughtData
@@ -88,7 +88,7 @@ const thoughtController = {
     )
       .then((dbThoughtData) => {
         !dbThoughtData
-          ? res.status(404).json({ message: "No thought with this ID!" })
+          ? res.status(404).json({ message: "No thought found with this ID!" })
           : res.json({
               message: "Successfully added reaction",
               dbThoughtData,
